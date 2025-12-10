@@ -1,0 +1,558 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        304,
+        424
+      ],
+      "id": "d24dc6da-aa3a-4961-919f-0e21aee99401",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "15Chx87sRFh9UsIMUASccCcKL8qj4_bLEStH8CT2XVEE",
+          "mode": "list",
+          "cachedResultName": "Influencer Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15Chx87sRFh9UsIMUASccCcKL8qj4_bLEStH8CT2XVEE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15Chx87sRFh9UsIMUASccCcKL8qj4_bLEStH8CT2XVEE/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "727e578b-2494-4cf2-9545-92fe91e269a5",
+      "name": "Fetch Influencer Data",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        528,
+        424
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4ASj1TKaMA5ACeUR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        752,
+        424
+      ],
+      "id": "698f1074-f189-4865-8753-e6c224fa49c9",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        576
+      ],
+      "id": "a2d3998a-88df-473b-bc91-fac3ba8d4562"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "15Chx87sRFh9UsIMUASccCcKL8qj4_bLEStH8CT2XVEE",
+          "mode": "list",
+          "cachedResultName": "Influencer Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15Chx87sRFh9UsIMUASccCcKL8qj4_bLEStH8CT2XVEE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15Chx87sRFh9UsIMUASccCcKL8qj4_bLEStH8CT2XVEE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.name }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Platform",
+              "displayName": "Platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Niche",
+              "displayName": "Niche",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Followers",
+              "displayName": "Followers",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Rate (%)",
+              "displayName": "Engagement Rate (%)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Avg Likes",
+              "displayName": "Avg Likes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "484173a0-3ea4-415f-be5e-12947982a7bb",
+      "name": "Fetch Influencer Data1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1904,
+        176
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4ASj1TKaMA5ACeUR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "workspace": "1212236979582060",
+        "name": "={{ $json.output.name }}",
+        "otherProperties": {
+          "due_on": "={{ $json.output.duedate }}"
+        }
+      },
+      "type": "n8n-nodes-base.asana",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        176
+      ],
+      "id": "c7a6818d-510c-4de3-8e5a-114f872cfcac",
+      "name": "Create a task",
+      "retryOnFail": true,
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "asanaOAuth2Api": {
+          "id": "3ObjPt4BN9XBkb2w",
+          "name": "Asana account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Name: \n{{ $json.Name }}\n\nPlatform:\n{{ $json.Platform }}\n\nFollowers:\n{{ $json.Followers }}\n\nGenerate the task JSON strictly using the required format:\n{\n  \"name\": \"\",\n  \"title\": \"\",\n  \"platform\": \"\",\n  \"priority\": \"\",\n  \"duedate\": \"\"\n}\n\nReply ONLY with the JSON object and nothing else.\nIf the input is invalid, return {\"error\":\"invalid input\"}.\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an AI Task Generator for influencer workflow automation.\nYour only job is to generate a single valid JSON object based on the influencer data provided.\n\nOutput format (must match exactly):\n{\n  \"name\": \"\",\n  \"title\": \"\",\n  \"platform\": \"\",\n  \"priority\": \"\",\n  \"duedate\": \"\"\n}\n\nRules:\n- \"name\" must match the input Name value exactly.\n- \"title\" must be a task title that includes the influencer’s name.\n- \"platform\" must match the input Platform value exactly.\n- \"priority\" must be one of: Low, Medium, High.\n- \"duedate\" must be 2–4 days from today in YYYY-MM-DD format.\n- Respond with ONLY the JSON object.\n- No markdown, no explanation, no labels, no extra text, no comments.\n- No whitespace before or after the JSON.\n- If required input is missing or invalid, return exactly:\n{\"error\":\"invalid input\"}\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1216,
+        -32
+      ],
+      "id": "4a86f731-4fa5-4b82-af1e-1690d35afc58",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1184,
+        192
+      ],
+      "id": "3ed0ff2f-2120-4fa1-91bf-2b38b9c62cd9",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "a2PKiHPrGskCVLyr",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"name\": \"\",\n  \"title\": \"\",\n  \"description\": \"\",\n  \"priority\": \"\",\n  \"duedate\": \"\"\n}\n",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1312,
+        192
+      ],
+      "id": "3bea8570-3d9f-452b-bea9-e73a83ee6416",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1392,
+        400
+      ],
+      "id": "ec0bc300-a012-4198-b413-de3f97829f31",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "a2PKiHPrGskCVLyr",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "maxItems": 2
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        960,
+        336
+      ],
+      "id": "80a97eec-c765-4c34-a3fd-01973e00e179",
+      "name": "Limit"
+    }
+  ],
+  "pinData": {
+    "AI Agent": [
+      {
+        "json": {
+          "output": {
+            "name": "Meera Joshi",
+            "title": "Create content for Meera Joshi",
+            "description": "Generate a task for influencer Meera Joshi on Instagram.",
+            "priority": "High",
+            "duedate": "2024-05-18"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Rohan Desai",
+            "title": "Create YouTube video for Rohan Desai",
+            "description": "YouTube",
+            "priority": "High",
+            "duedate": "2024-05-18"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Tanya Arora",
+            "title": "Create Instagram post for Tanya Arora",
+            "description": "",
+            "priority": "High",
+            "duedate": "2023-10-29"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Sahil Khan",
+            "title": "Create tweet for Sahil Khan",
+            "description": "Social media task for Sahil Khan.",
+            "priority": "Medium",
+            "duedate": "2024-05-18"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Kiara Singh",
+            "title": "Create TikTok content for Kiara Singh",
+            "description": "Task for TikTok platform.",
+            "priority": "High",
+            "duedate": "2024-05-27"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Harsh Patel",
+            "title": "Promote new content for Harsh Patel on YouTube",
+            "description": "YouTube",
+            "priority": "High",
+            "duedate": "2024-05-18"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Implement user authentication",
+            "title": "User Authentication System",
+            "description": "Develop and integrate a secure user authentication system with features like registration, login, password reset, and session management.",
+            "priority": "High",
+            "duedate": "2023-12-31"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Zaid Ali",
+            "title": "Create TikTok video for Zaid Ali",
+            "description": "Generate a task for influencer Zaid Ali to create a TikTok video.",
+            "priority": "Medium",
+            "duedate": "2024-08-02"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Ananya Roy",
+            "title": "Create Instagram content for Ananya Roy",
+            "description": "",
+            "priority": "Medium",
+            "duedate": "2024-06-10"
+          }
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "name": "Vishal Kumar",
+            "title": "Create YouTube video for Vishal Kumar",
+            "description": "Create YouTube video for Vishal Kumar",
+            "priority": "Medium",
+            "duedate": "2024-08-02"
+          }
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Fetch Influencer Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Influencer Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a task": {
+      "main": [
+        [
+          {
+            "node": "Fetch Influencer Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Create a task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7d1d62e8-142d-45e9-acea-3f9757734c1c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "40bc627b19e58e2219818d090d0fbabc94785ec360473ef62f0ec1053cde3ac1"
+  },
+  "id": "zVKvroDeOrFcUGZa",
+  "tags": []
+}
